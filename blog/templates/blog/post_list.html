@@ -10,27 +10,20 @@
 		
 		<div>
 			
-			<h1><a href="">Django Girls blog</a></h1>
+			<h1><a href="/">Django Girls blog</a></h1>
 		
 		</div>
-		
-		<div>
-			<p>published: 8.01.2016, 15:22</p>
-			
-			<h2><a href="">My first post</a></h2>
-			
-			<p>Puoi essere anche tu una Django Girl. Segui il mio Blog.</p>
-			
-		</div>
-		
-		<div>
-			
-			<p>published: 8.01.2016, 16:10</p>
-			
-			<h2><a href="">My second post</a></h2>
-			
-			<p>La programmazione informatica è accessibile a tutti.</p>	
-		
+
+		{% for post in posts %}
+
+			<div>
+
+				<p>published: {{ post.published_date }}</p>
+				<h1><a href="">{{ post.title }}</a></h1>
+				<p>{{ post.text| linebreaks }}</p>
+				{{ post }}
+			</div>
+			{% endfor %}
 		</div>			
 	
 	</body>	
